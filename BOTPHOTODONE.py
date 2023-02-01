@@ -22,15 +22,15 @@ def start(bot: Bot, update: Update):
 def echo(bot: Bot, update: Update):
     if update.message.photo:
         #chat-id - айди группы,куда пересылаются фото и текст
-        bot.forward_message(chat_id='-1001880947365', from_chat_id=update.message.chat_id, message_id=update.message.message_id)
+        bot.forward_message(chat_id='CHAT_ID', from_chat_id=update.message.chat_id, message_id=update.message.message_id)
         bot.send_message(chat_id=update.message.chat_id, text="Photo is done.")
     else:
-        bot.forward_message(chat_id='-1001880947365', from_chat_id=update.message.chat_id, message_id=update.message.message_id)
+        bot.forward_message(chat_id='CHAT_ID', from_chat_id=update.message.chat_id, message_id=update.message.message_id)
         bot.send_message(chat_id=update.message.chat_id, text="Text is done.")
 
 def main():
     #токен бота, берется в телеграм боте bot-father, там же создается бот и выдается токен, который необходимо вставить ниже
-    bot = Bot(token='5966930989:AAHAdzX6QHHgfhmSlh6k6tVrzkaS9pYcl3c')
+    bot = Bot(token='TOKEN')
     updater = Updater(bot=bot)
 
     startbot = CommandHandler('start', start)
